@@ -1,13 +1,30 @@
 <template>
-    <div>
-        <Nuxt />
+    <div class="layout">
+        <div class="sidebar">
+            <div class="sa-menu">
+                <div class="sa-menu-group">
+                    <div class="sa-menu-group-title">
+                        <!-- <mx-icon v-if="item.icon" :name="item.icon" class="sa-menu-icon"></mx-icon> -->
+                        <span>CSS</span>
+                    </div>
+
+                    <nuxt-link to="/shadow" tag="div" class="sa-menu-item">
+                        <!-- <mx-icon v-if="child.icon" :name="child.icon" class="sa-menu-icon"></mx-icon> -->
+                        <span>阴影生成器</span>
+                    </nuxt-link>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <Nuxt />
+        </div>
     </div>
 </template>
 
-<style>
+<style lang="scss">
 html {
-    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-        'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+        sans-serif;
     font-size: 16px;
     word-spacing: 1px;
     -ms-text-size-adjust: 100%;
@@ -16,6 +33,9 @@ html {
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
 }
+body {
+    padding: 0;
+}
 
 *,
 *::before,
@@ -23,33 +43,86 @@ html {
     box-sizing: border-box;
     margin: 0;
 }
-
-.button--green {
-    display: inline-block;
-    border-radius: 4px;
-    border: 1px solid #3b8070;
-    color: #3b8070;
-    text-decoration: none;
-    padding: 10px 30px;
+.layout {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+.sidebar {
+    width: 240px;
+    flex: 0 0 240px;
+    border-right: 1px solid #dedede;
+    height: 100%;
+}
+.main {
+    flex: auto;
+    padding: 20px;
 }
 
-.button--green:hover {
-    color: #fff;
-    background-color: #3b8070;
-}
+.sa-menu {
+    flex: auto;
+    width: 100%;
+    height: 100%;
+    background-color: #053340;
+    color: #ffffff;
+    &-icon {
+        margin-right: 12px;
+    }
+    &-line {
+        width: 180px;
+        height: 1px;
+        background-color: #197992;
+        margin: 12px auto 0;
+    }
+    &-group {
+        &-title {
+            height: 40px;
+            line-height: 40px;
+            box-sizing: border-box;
+            padding: 0 15px;
+            color: #197992;
+        }
+    }
+    &-sub {
+        &-arrow {
+            transition: transform 0.3s;
+            transform: rotate(0);
+        }
 
-.button--grey {
-    display: inline-block;
-    border-radius: 4px;
-    border: 1px solid #35495e;
-    color: #35495e;
-    text-decoration: none;
-    padding: 10px 30px;
-    margin-left: 15px;
-}
-
-.button--grey:hover {
-    color: #fff;
-    background-color: #35495e;
+        &-open &-arrow {
+            transform: rotate(90deg);
+        }
+        &-title {
+            display: flex;
+            justify-content: space-between;
+            height: 40px;
+            line-height: 40px;
+            box-sizing: border-box;
+            padding: 0 15px;
+            cursor: default;
+            &:hover {
+                background-color: #124958;
+            }
+        }
+        &-content .sa-menu-item {
+            padding: 0 15px 0 27px;
+        }
+    }
+    &-item {
+        height: 40px;
+        line-height: 40px;
+        box-sizing: border-box;
+        padding: 0 15px;
+        cursor: pointer;
+        &:hover {
+            background-color: #124958;
+        }
+        &-active {
+            background-color: #409eff;
+            &:hover {
+                background-color: #409eff;
+            }
+        }
+    }
 }
 </style>
