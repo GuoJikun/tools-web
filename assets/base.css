@@ -1,0 +1,16 @@
+html {
+    font-size: 14px;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    height: 32px;
+    padding: 0 8px;
+}

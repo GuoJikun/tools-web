@@ -13,6 +13,21 @@
                         <span>阴影生成器</span>
                     </nuxt-link>
                 </div>
+                <div class="sa-menu-group">
+                    <div class="sa-menu-group-title">
+                        <!-- <mx-icon v-if="item.icon" :name="item.icon" class="sa-menu-icon"></mx-icon> -->
+                        <span>Vue 指令</span>
+                    </div>
+
+                    <nuxt-link to="/directives" tag="div" class="sa-menu-item">
+                        <!-- <mx-icon v-if="child.icon" :name="child.icon" class="sa-menu-icon"></mx-icon> -->
+                        <span>focus</span>
+                    </nuxt-link>
+                    <nuxt-link to="/directives/mouse-right-click" tag="div" class="sa-menu-item">
+                        <!-- <mx-icon v-if="child.icon" :name="child.icon" class="sa-menu-icon"></mx-icon> -->
+                        <span>右键菜单</span>
+                    </nuxt-link>
+                </div>
             </div>
         </div>
         <div class="main">
@@ -25,7 +40,7 @@
 html {
     font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
         sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     word-spacing: 1px;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
