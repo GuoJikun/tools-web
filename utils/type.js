@@ -26,4 +26,13 @@ function isArray(value) {
     return typeOf(value) === 'Array'
 }
 
-export { typeOf, isObject, isArray }
+/**
+ * 是否是Function类型
+ * @param {*} value 入参
+ * @returns {Boolean} 返回值
+ */
+function isFunction(value) {
+    return typeOf(value) === 'Function'
+}
+
+export { typeOf, isObject, isArray, isFunction }

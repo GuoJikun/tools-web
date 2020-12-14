@@ -1,6 +1,7 @@
 import { findBrothersElement } from '@/utils/dom.js'
+import { isFunction, isObject } from '@/utils/type.js'
 
-function createMenu(arr, point, fn) {
+function createRootEle(point, fn) {
     const contentMenu = document.createElement('div')
     contentMenu.style.position = 'fixed'
     contentMenu.style.top = point.y ? point.y + 'px' : 0
@@ -47,7 +48,18 @@ function createMenu(arr, point, fn) {
             el.style.backgroundColor = '#ffffff'
         })
     })
+    return contentMenu
+}
 
+function applyCustomStyleToRoot(root, style) {
+    const entries = Object.entries(style)
+
+    for (const [key, val] of entries) {
+        root.style[key] = val
+    }
+}
+
+function createMenu(arr) {
     const menuList = arr.map((item, i) => {
         let command = i
         let name = ''
@@ -60,9 +72,23 @@ function createMenu(arr, point, fn) {
         return `<li style="line-height: 32px;padding: 0 12px;transition: background-color 0.3s;background-color: #ffffff;cursor: pointer;" command="${command}">${name}</li>`
     })
 
-    const menuInnerStr = `<ul style="list-style: none;margin: 0;">${menuList.join('')}</ul>`
-    contentMenu.innerHTML = menuInnerStr
-    document.body.appendChild(contentMenu)
+    return `<ul style="list-style: none;margin: 0;">${menuList.join('')}</ul>`
+}
+
+function render(opts) {
+    const menuList = opts.menus || []
+    const point = opts.point || { x: 0, y: 0 }
+    const cb = isFunction(opts.callback) ? opts.callback : { x: 0, y: 0 }
+    const rootStyle = isObject(opts.style) ? opts.style : null
+
+    const rootEle = createRootEle(point, cb)
+    if (rootStyle) {
+        applyCustomStyleToRoot(rootEle, rootStyle)
+    }
+
+    const menuEle = createMenu(menuList)
+    rootEle.innerHTML = menuEle
+    document.body.appendChild(rootEle)
 }
 
 function bodyClick(ev) {
@@ -79,12 +105,13 @@ export default {
                 x: ev.pageX,
                 y: ev.pageY,
             }
+            data.point = point
             const target = document.getElementById('ivyMouseRightMenus')
             if (target) document.body.removeChild(target)
-            createMenu(data.menus, point, data.callback)
+            render(data)
         })
     },
-    inserted(el) {
+    inserted() {
         document.body.addEventListener('click', bodyClick)
     },
     unbind() {

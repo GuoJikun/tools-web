@@ -12,6 +12,10 @@
                         <!-- <mx-icon v-if="child.icon" :name="child.icon" class="sa-menu-icon"></mx-icon> -->
                         <span>阴影生成器</span>
                     </nuxt-link>
+                    <nuxt-link to="/loading" tag="div" class="sa-menu-item">
+                        <!-- <mx-icon v-if="child.icon" :name="child.icon" class="sa-menu-icon"></mx-icon> -->
+                        <span>Loading</span>
+                    </nuxt-link>
                 </div>
                 <div class="sa-menu-group">
                     <div class="sa-menu-group-title">

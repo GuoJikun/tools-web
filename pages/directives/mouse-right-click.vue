@@ -18,7 +18,7 @@
             </div>
         </layout-item>
         <layout-item title="设置自定义菜单的样式" desc="可以使绑定指令的元素在页面加载后自动获得焦点">
-            <div v-mouse-right-click="contentMenuList" style="line-height: 34px">
+            <div v-mouse-right-click="contentMenuListCustom" style="line-height: 34px">
                 <div>菜单撒付付付付付</div>
                 <div>菜单撒付付付付付</div>
                 <div>菜单撒付付付付付</div>
@@ -77,7 +77,9 @@ export default {
                 callback(item) {
                     console.warn(item, '鼠标右键菜单点击事件')
                 },
-                menuStyle: {},
+                style: {
+                    backgroundColor: 'red',
+                },
                 menuItemStyle: {},
                 menuItemHoverStyle: {
                     color: 'red',
