@@ -73,13 +73,13 @@ function bodyClick(ev) {
 export default {
     bind(el, binding) {
         const data = binding.value
-        const target = document.getElementById('ivyMouseRightMenus')
         el.addEventListener('contextmenu', (ev) => {
             ev.preventDefault()
             const point = {
                 x: ev.pageX,
                 y: ev.pageY,
             }
+            const target = document.getElementById('ivyMouseRightMenus')
             if (target) document.body.removeChild(target)
             createMenu(data.menus, point, data.callback)
         })

@@ -16,7 +16,7 @@
                 <div class="sa-menu-group">
                     <div class="sa-menu-group-title">
                         <!-- <mx-icon v-if="item.icon" :name="item.icon" class="sa-menu-icon"></mx-icon> -->
-                        <span>Vue 指令</span>
+                        <span>Vue Directive</span>
                     </div>
 
                     <nuxt-link to="/directives" tag="div" class="sa-menu-item">
@@ -26,6 +26,17 @@
                     <nuxt-link to="/directives/mouse-right-click" tag="div" class="sa-menu-item">
                         <!-- <mx-icon v-if="child.icon" :name="child.icon" class="sa-menu-icon"></mx-icon> -->
                         <span>右键菜单</span>
+                    </nuxt-link>
+                </div>
+                <div class="sa-menu-group">
+                    <div class="sa-menu-group-title">
+                        <!-- <mx-icon v-if="item.icon" :name="item.icon" class="sa-menu-icon"></mx-icon> -->
+                        <span>Vue Component</span>
+                    </div>
+
+                    <nuxt-link to="/components" tag="div" class="sa-menu-item">
+                        <!-- <mx-icon v-if="child.icon" :name="child.icon" class="sa-menu-icon"></mx-icon> -->
+                        <span>Highlight 语法高亮</span>
                     </nuxt-link>
                 </div>
             </div>
@@ -38,7 +49,7 @@
 
 <style lang="scss">
 html {
-    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    font-family: 'Helvetica Neue', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial,
         sans-serif;
     font-size: 14px;
     word-spacing: 1px;
