@@ -31,6 +31,10 @@
                         <!-- <mx-icon v-if="child.icon" :name="child.icon" class="sa-menu-icon"></mx-icon> -->
                         <span>右键菜单</span>
                     </nuxt-link>
+                    <nuxt-link to="/directives/loading" tag="div" class="sa-menu-item">
+                        <!-- <mx-icon v-if="child.icon" :name="child.icon" class="sa-menu-icon"></mx-icon> -->
+                        <span>Loading</span>
+                    </nuxt-link>
                 </div>
                 <div class="sa-menu-group">
                     <div class="sa-menu-group-title">
